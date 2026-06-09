@@ -12,11 +12,14 @@
   :root {
     /* Font stacks — defined here so Tailwind's var() references are always valid,
        even if the optional Google Fonts stylesheet fails to load. */
-    --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --font-serif: "Newsreader", "Iowan Old Style", Georgia, "Times New Roman", serif;
+    /* Modern, appealing body/UI sans */
+    --font-sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+    /* Elegant high-contrast display serif (Sotheby's/Cormorant feel) */
+    --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
     --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-    /* Old-money wordmark serif: classic Garamond/Caslon feel, low curve. */
-    --font-wordmark: "EB Garamond", "Cormorant Garamond", "Libre Caslon Display", Georgia, "Times New Roman", serif;
+    --font-wordmark: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    /* Porsche-inspired carmine red for the brand wordmark + key accents */
+    --brand-red: #c8102e;
 
     --background: 44 30% 94%;       /* warm parchment */
     --foreground: 210 8% 14%;       /* graphite ink */
@@ -61,6 +64,7 @@
 
   h1, h2, h3, h4 {
     @apply font-serif;
+    font-weight: 500;
     font-feature-settings: "kern", "liga";
   }
 
@@ -89,23 +93,26 @@
     @apply rounded-md border border-border bg-card shadow-archive;
   }
 
-  /* Editorial dropcap-free serif display sizing helper */
+  /* Editorial serif display sizing helper */
   .display {
-    @apply font-serif font-light tracking-tight;
+    @apply font-serif tracking-tight;
+    font-weight: 500;
   }
 
-  /* Old-money brand wordmark */
+  /* Brand wordmark — elegant Cormorant in Porsche red */
   .wordmark {
     font-family: var(--font-wordmark);
-    font-weight: 500;
-    letter-spacing: 0.01em;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    color: var(--brand-red);
     font-feature-settings: "liga", "kern";
   }
   .wordmark-caps {
     font-family: var(--font-wordmark);
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--brand-red);
   }
 }
 

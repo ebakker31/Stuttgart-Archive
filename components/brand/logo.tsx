@@ -2,28 +2,52 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 /**
- * Original Stuttgart Archive wordmark + mark. The mark is an abstract archival
- * motif — a filed index card with a timeline notch — NOT derived from any
- * official Porsche crest, logo, or typography.
+ * Stuttgart Archive primary logo — the "Framed Nameplate": an elegant Cormorant
+ * Garamond wordmark in Porsche-inspired carmine red, set inside a thin frame
+ * with red corner ticks (museum object-label feel). Adapts to light/dark.
+ * Entirely original — no Porsche crest, logo, or official typography.
  */
+
+const TICKS = [
+  "top-0 left-0 border-t border-l",
+  "top-0 right-0 border-t border-r",
+  "bottom-0 left-0 border-b border-l",
+  "bottom-0 right-0 border-b border-r",
+];
+
+/** Compact "SA" monogram for avatars/tight spaces + the favicon. */
 export function ArchiveMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 32 32" className={cn("h-7 w-7", className)} fill="none" aria-hidden="true">
-      <rect x="3.5" y="5.5" width="25" height="21" rx="2" className="stroke-current" strokeWidth="1.6" />
-      <line x1="3.5" y1="11.5" x2="28.5" y2="11.5" className="stroke-current" strokeWidth="1.6" />
-      <line x1="16" y1="11.5" x2="16" y2="26.5" className="stroke-oxblood" strokeWidth="1.6" />
-      <circle cx="16" cy="18.5" r="1.7" className="fill-oxblood" />
-    </svg>
+    <span
+      className={cn("inline-flex items-center justify-center font-semibold leading-none", className)}
+      style={{ color: "var(--brand-red)", fontFamily: "var(--font-wordmark)" }}
+      aria-hidden
+    >
+      SA
+    </span>
   );
 }
 
-export function Wordmark({ className, href = "/" }: { className?: string; href?: string }) {
+export function Wordmark({
+  className,
+  href = "/",
+  subtitle = true,
+  frame = true,
+}: {
+  className?: string;
+  href?: string;
+  subtitle?: boolean;
+  frame?: boolean;
+}) {
   return (
-    <Link href={href} className={cn("group inline-flex items-center gap-2.5", className)}>
-      <ArchiveMark className="text-graphite dark:text-parchment" />
-      <span className="flex flex-col leading-none">
-        <span className="wordmark text-xl">Stuttgart Archive</span>
-        <span className="archive-label mt-1 text-[0.56rem]">Est. for the marque</span>
+    <Link href={href} className={cn("inline-flex", className)}>
+      <span className={cn("relative inline-flex flex-col items-center px-4 py-2", frame && "border border-foreground/25")}>
+        <span className="wordmark whitespace-nowrap text-xl leading-none">Stuttgart Archive</span>
+        {subtitle && <span className="archive-label mt-1.5 text-[0.5rem] text-muted-foreground">Est. for the marque</span>}
+        {frame &&
+          TICKS.map((pos) => (
+            <span key={pos} className={cn("pointer-events-none absolute h-[7px] w-[7px]", pos)} style={{ borderColor: "var(--brand-red)" }} />
+          ))}
       </span>
     </Link>
   );
