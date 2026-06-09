@@ -82,12 +82,19 @@ With **no keys at all**, you get the full marketing site, the public demo archiv
 (`/demo`, `/explore`, `/v/[slug]`), and the entire app (`/app`) running against the
 clearly-labeled demo data.
 
-### Build / typecheck
+### Build / typecheck / test
 
 ```bash
 npm run build       # production build
 npm run typecheck   # tsc --noEmit
+npm test            # vitest — guardrail + scoring unit tests
 ```
+
+The test suite (`tests/`) exercises the product's core safety guarantees: the
+Claim Verification, Privacy Guard, Brand Guardian, and Document agents, the readiness
+scoring, and the approval-gating contract that keeps Instagram/ad/buyer-reply/public-page
+agents from ever auto-executing. CI (`.github/workflows/ci.yml`) runs typecheck, tests,
+and a build on every push and PR.
 
 ---
 
