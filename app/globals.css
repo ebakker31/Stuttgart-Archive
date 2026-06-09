@@ -15,6 +15,8 @@
     --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
     --font-serif: "Newsreader", "Iowan Old Style", Georgia, "Times New Roman", serif;
     --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+    /* Old-money wordmark serif: classic Garamond/Caslon feel, low curve. */
+    --font-wordmark: "EB Garamond", "Cormorant Garamond", "Libre Caslon Display", Georgia, "Times New Roman", serif;
 
     --background: 44 30% 94%;       /* warm parchment */
     --foreground: 210 8% 14%;       /* graphite ink */
@@ -90,6 +92,20 @@
   /* Editorial dropcap-free serif display sizing helper */
   .display {
     @apply font-serif font-light tracking-tight;
+  }
+
+  /* Old-money brand wordmark */
+  .wordmark {
+    font-family: var(--font-wordmark);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    font-feature-settings: "liga", "kern";
+  }
+  .wordmark-caps {
+    font-family: var(--font-wordmark);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-weight: 500;
   }
 }
 

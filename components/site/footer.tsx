@@ -5,7 +5,7 @@ import { BRAND, FOOTER_DISCLAIMER } from "@/lib/brand";
 const COLS = [
   { title: "Product", links: [["Digital Garage", "/#garage"], ["Community", "/community"], ["Auction Radar", "/events"], ["Pricing", "/pricing"], ["Demo Archive", "/demo"], ["Explore", "/explore"]] },
   { title: "Trust", links: [["Buying & selling", "/selling"], ["Privacy", "/privacy"], ["Terms & Disclaimer", "/terms"], ["Real-data-only AI", "/#real-data"]] },
-  { title: "Company", links: [["Founding members", "/join"], ["Book a demo", "/book-demo"], ["Sign in", "/login"], ["Start your archive", "/signup"]] },
+  { title: "Company", links: [["Founding members", "/join"], ["Brand studio", "/brand"], ["Book a demo", "/book-demo"], ["Sign in", "/login"]] },
 ];
 
 export function SiteFooter() {

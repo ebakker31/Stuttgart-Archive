@@ -22,8 +22,8 @@ export function Wordmark({ className, href = "/" }: { className?: string; href?:
     <Link href={href} className={cn("group inline-flex items-center gap-2.5", className)}>
       <ArchiveMark className="text-graphite dark:text-parchment" />
       <span className="flex flex-col leading-none">
-        <span className="font-serif text-lg tracking-tight">Stuttgart Archive</span>
-        <span className="archive-label mt-0.5 text-[0.56rem]">Est. for the marque</span>
+        <span className="wordmark text-xl">Stuttgart Archive</span>
+        <span className="archive-label mt-1 text-[0.56rem]">Est. for the marque</span>
       </span>
     </Link>
   );
