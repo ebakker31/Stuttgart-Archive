@@ -1,0 +1,141 @@
+import type { OneTimeProductDefinition, PlanDefinition } from "./types";
+
+/** Canonical plan + product catalogue. Source of truth for pricing UI + limits. */
+
+export const PLANS: PlanDefinition[] = [
+  {
+    id: "free",
+    name: "Free",
+    priceLabel: "$0",
+    cadence: "free",
+    vehicleLimit: 3,
+    documentUploadLimit: 15,
+    storageLimitMb: 250,
+    aiGenerationLimit: 10,
+    highlight: true,
+    features: [
+      "3 vehicles",
+      "Limited document uploads",
+      "Basic digital garage",
+      "Basic service timeline",
+      "Basic modification timeline",
+      "Basic buyer checklist",
+      "Basic public page",
+      "Limited AI generations",
+    ],
+  },
+  {
+    id: "plus",
+    name: "Archive Plus",
+    priceLabel: "$9/mo",
+    cadence: "monthly",
+    vehicleLimit: 10,
+    documentUploadLimit: 250,
+    storageLimitMb: 5000,
+    aiGenerationLimit: 200,
+    features: [
+      "More vehicles",
+      "More storage",
+      "More AI generations",
+      "Advanced document extraction",
+      "Advanced timelines",
+      "Downloadable reports",
+      "Priority processing",
+    ],
+  },
+  {
+    id: "collector",
+    name: "Collector",
+    priceLabel: "$29/mo",
+    cadence: "monthly",
+    vehicleLimit: 25,
+    documentUploadLimit: 1000,
+    storageLimitMb: 25000,
+    aiGenerationLimit: 600,
+    features: [
+      "Up to 25 vehicles",
+      "Collection dashboard",
+      "Advanced provenance tracking",
+      "Portfolio sharing",
+      "Maintenance reminders",
+      "Advanced storage",
+    ],
+  },
+  {
+    id: "dealer",
+    name: "Dealer / Broker",
+    priceLabel: "$199/mo+",
+    cadence: "monthly",
+    vehicleLimit: 250,
+    documentUploadLimit: 10000,
+    storageLimitMb: 250000,
+    aiGenerationLimit: 5000,
+    features: [
+      "Inventory dashboard",
+      "Team access",
+      "Branded public pages",
+      "Lead capture",
+      "Bulk upload",
+      "Listing prep",
+      "Instagram content drafts",
+      "Ad brief drafts",
+    ],
+  },
+  {
+    id: "concierge",
+    name: "Concierge / Enterprise",
+    priceLabel: "Custom",
+    cadence: "monthly",
+    vehicleLimit: Number.POSITIVE_INFINITY,
+    documentUploadLimit: Number.POSITIVE_INFINITY,
+    storageLimitMb: Number.POSITIVE_INFINITY,
+    aiGenerationLimit: Number.POSITIVE_INFINITY,
+    features: [
+      "Custom pricing",
+      "Unlimited inventory",
+      "Concierge listing prep",
+      "Dedicated onboarding",
+      "Custom integrations",
+    ],
+  },
+];
+
+export const ONE_TIME_PRODUCTS: OneTimeProductDefinition[] = [
+  {
+    id: "seller_pack",
+    name: "Seller Pack",
+    priceLabel: "$49 one-time / vehicle",
+    amountCents: 4900,
+    perVehicle: true,
+    features: [
+      "Full seller packet PDF",
+      "Listing description",
+      "Buyer FAQ",
+      "Photo checklist",
+      "Walkaround script",
+      "Shareable secure seller packet",
+      "Public listing page upgrade",
+      "Auction-style listing draft",
+    ],
+  },
+  {
+    id: "auction_pack",
+    name: "Auction Pack",
+    priceLabel: "$99 one-time / vehicle",
+    amountCents: 9900,
+    perVehicle: true,
+    features: [
+      "Auction-style listing draft",
+      "Auction-platform-style drafts",
+      "Auction photo checklist",
+      "Video checklist",
+      "Comment response prep",
+      "Export-ready auction packet",
+      "Claim verification report",
+    ],
+  },
+];
+
+export function getPlan(id: string): PlanDefinition | undefined {
+  return PLANS.find((p) => p.id === id);
+}
