@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Stuttgart Archive — archival design system.
+  Light mode: warm parchment, graphite ink, silver dividers, oxblood accent.
+  Dark mode: deep graphite "vault" with parchment-tinted ink.
+*/
+
+@layer base {
+  :root {
+    /* Font stacks — defined here so Tailwind's var() references are always valid,
+       even if the optional Google Fonts stylesheet fails to load. */
+    --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-serif: "Newsreader", "Iowan Old Style", Georgia, "Times New Roman", serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+    --background: 44 30% 94%;       /* warm parchment */
+    --foreground: 210 8% 14%;       /* graphite ink */
+    --card: 44 33% 97%;             /* lighter parchment card */
+    --card-foreground: 210 8% 14%;
+    --muted: 42 18% 88%;
+    --muted-foreground: 210 6% 38%;
+    --border: 42 16% 80%;           /* silver/parchment line */
+    --input: 42 16% 82%;
+    --ring: 0 53% 36%;              /* oxblood focus ring */
+    --accent: 0 53% 36%;            /* oxblood */
+    --accent-foreground: 44 33% 97%;
+  }
+
+  .dark {
+    --background: 210 8% 11%;        /* deep graphite vault */
+    --foreground: 44 25% 90%;       /* parchment ink */
+    --card: 210 8% 14%;
+    --card-foreground: 44 25% 90%;
+    --muted: 210 7% 18%;
+    --muted-foreground: 210 6% 64%;
+    --border: 210 7% 22%;
+    --input: 210 7% 24%;
+    --ring: 0 45% 52%;
+    --accent: 0 45% 52%;
+    --accent-foreground: 210 8% 11%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "kern", "liga", "calt";
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif;
+    font-feature-settings: "kern", "liga";
+  }
+
+  ::selection {
+    background: hsl(var(--accent) / 0.18);
+  }
+}
+
+@layer components {
+  /* Archival small-caps label, used for museum-style captions and metadata */
+  .archive-label {
+    @apply font-sans text-[0.68rem] uppercase tracking-label text-muted-foreground;
+  }
+
+  .hairline {
+    @apply border-t border-border/80;
+  }
+
+  /* Subtle paper grain overlay for hero / archive surfaces */
+  .paper-grain {
+    background-image: var(--tw-bg-paper-grain, radial-gradient(circle at 1px 1px, hsl(var(--foreground) / 0.04) 1px, transparent 0));
+    background-size: 22px 22px;
+  }
+
+  .archive-card {
+    @apply rounded-md border border-border bg-card shadow-archive;
+  }
+
+  /* Editorial dropcap-free serif display sizing helper */
+  .display {
+    @apply font-serif font-light tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
