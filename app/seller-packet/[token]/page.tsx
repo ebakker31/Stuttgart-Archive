@@ -1,6 +1,7 @@
 import { Wordmark } from "@/components/brand/logo";
 import { ArchiveLabel, MuseumCaption, Separator, Stat } from "@/components/ui/misc";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { DemoNotice } from "@/components/guardrails";
 import { ServiceTimeline } from "@/components/timeline";
 import { DEMO_VEHICLES } from "@/lib/demo-data";
@@ -30,6 +31,8 @@ export default async function SellerPacketPage({ params }: { params: { token: st
         <ArchiveLabel>Shared with you · token {params.token.slice(0, 8)}…</ArchiveLabel>
         <h1 className="mt-3 display text-4xl">{v.year} Porsche {v.model}</h1>
         <p className="mt-2 text-muted-foreground">{v.trim ?? v.bodyStyle} · {v.exteriorColor} over {v.interiorColor} · {formatMileage(v.mileage)}</p>
+
+        <div className="mt-4"><Button variant="accent" href={`/api/seller-packet/pdf?vehicle=${v.slug}`}>Download packet PDF</Button></div>
 
         <MuseumCaption className="mt-6 text-base">{v.archiveNotes}</MuseumCaption>
 

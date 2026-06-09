@@ -217,7 +217,7 @@ async function SellerPacketTab({ ctx }: any) {
       <AIInsightCard title="Listing copy" result={listing}>
         <p className="whitespace-pre-line text-sm text-muted-foreground">{listing.output.longDescription}</p>
       </AIInsightCard>
-      <div className="flex gap-2"><Button variant="accent">Generate seller packet PDF</Button><Button variant="outline">Create secure share link</Button></div>
+      <div className="flex gap-2"><Button variant="accent" href={`/api/seller-packet/pdf?vehicle=${ctx.vehicleId}`}>Download seller packet PDF</Button><Button variant="outline">Create secure share link</Button></div>
     </div>
   );
 }
