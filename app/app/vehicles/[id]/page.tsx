@@ -11,7 +11,8 @@ import { ServiceTimeline, ModificationTimeline } from "@/components/timeline";
 import { AIInsightCard } from "@/components/ai-insight-card";
 import { GuardrailNotice } from "@/components/guardrails";
 import { DemoDataBadge, PrivacyStatusBadge, SellerReadinessBadge, AuctionReadinessBadge, BuyerRiskBadge } from "@/components/badges";
-import { formatMileage, maskVin } from "@/lib/utils";
+import { formatCurrency, formatMileage, maskVin } from "@/lib/utils";
+import { VehicleImage } from "@/components/vehicle-image";
 
 import { sellerPacketAgent } from "@/lib/agents/seller-packet-agent";
 import { listingAgent } from "@/lib/agents/listing-agent";
@@ -109,6 +110,7 @@ async function Overview({ v, scope, scores, ctx }: any) {
   return (
     <div className="grid gap-8 lg:grid-cols-[1.6fr_1fr]">
       <div className="space-y-8">
+        <VehicleImage v={v} className="aspect-[16/9]" />
         <section>
           <ArchiveLabel>Archive notes</ArchiveLabel>
           <MuseumCaption className="mt-3 text-base">{v.archiveNotes}</MuseumCaption>
@@ -183,6 +185,7 @@ async function PhotosTab({ v, ctx }: any) {
   const coach = await photoCoachAgent.run({ scope: ctx.scope }, ctx);
   return (
     <div className="space-y-6">
+      <VehicleImage v={v} className="aspect-[16/9]" />
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {v.photos.map((p: any, i: number) => (
           <div key={i} className="flex aspect-[4/3] items-center justify-center rounded-md border border-border bg-gradient-to-br from-graphite/[0.05] to-graphite/[0.12] paper-grain"><span className="archive-label">{p.category}</span></div>

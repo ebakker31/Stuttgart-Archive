@@ -66,6 +66,17 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ---------------- TRUST STRIP ---------------- */}
+      <section className="border-b border-border bg-graphite text-parchment">
+        <div className="container flex flex-wrap items-center justify-center gap-x-10 gap-y-3 py-5 text-sm">
+          {["Private by default", "Real-data-only AI", "No auto-posting, ever", "Export or delete anytime", "Free to start"].map((t) => (
+            <span key={t} className="inline-flex items-center gap-2 text-parchment/85">
+              <CheckCircle2 className="h-4 w-4 text-oxblood-soft" /> {t}
+            </span>
+          ))}
+        </div>
+      </section>
+
       {/* ---------------- BUILT FOR CARS WITH A STORY ---------------- */}
       <section className="border-b border-border bg-card/40">
         <div className="container py-20">
@@ -91,6 +102,31 @@ export default function LandingPage() {
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.d}</p>
                 </CardContent>
               </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- HOW IT WORKS ---------------- */}
+      <section className="border-b border-border">
+        <div className="container py-20">
+          <ArchiveLabel>How it works</ArchiveLabel>
+          <h2 className="mt-3 display text-4xl">Three steps to a documented archive.</h2>
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {[
+              { n: "01", icon: Archive, t: "Add your Porsche", d: "Enter the basics — year, model, spec, mileage. It takes a minute, and it's private by default." },
+              { n: "02", icon: FileText, t: "Upload your records", d: "Drop in service invoices, the title, photos. We read the dates, mileage, and work performed for you to confirm." },
+              { n: "03", icon: ShieldCheck, t: "Share what you approve", d: "Build a public page, a seller packet, or an auction draft — and publish only the fields you choose." },
+            ].map((s, i) => (
+              <div key={s.n} className="relative">
+                <div className="flex items-center gap-3">
+                  <span className="font-serif text-3xl text-oxblood/30">{s.n}</span>
+                  <s.icon className="h-5 w-5 text-oxblood" />
+                </div>
+                <h3 className="mt-4 font-serif text-2xl">{s.t}</h3>
+                <p className="mt-2 leading-relaxed text-muted-foreground">{s.d}</p>
+                {i < 2 && <div className="absolute -right-4 top-3 hidden h-px w-8 bg-border md:block" />}
+              </div>
             ))}
           </div>
         </div>

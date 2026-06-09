@@ -40,6 +40,9 @@ export interface DemoVehicle {
   ownershipStatus: string;
   saleStatus: string;
   askingPrice?: number;
+  /** Optional path to a real licensed photo under /public (e.g. /demo-cars/slug.jpg).
+   *  When unset, the UI renders original blueprint artwork instead. */
+  photo?: string;
   options: string[];
   knownFlaws: string;
   ownershipStory: string;
@@ -183,14 +186,14 @@ export const DEMO_VEHICLES: DemoVehicle[] = [
     bodyStyle: "Convertible", exteriorColor: "GT Silver Metallic", interiorColor: "Black",
     mileage: 28900, transmission: "6-speed manual", engine: "3.8L naturally aspirated flat-six", drivetrain: "RWD",
     vinPublicMode: "partial", titleStatus: "Clean", ownershipStatus: "For sale", saleStatus: "For sale",
-    askingPrice: 0,
+    askingPrice: 92000,
     options: ["Manual top", "Sport Chrono", "Sport seats", "20-inch wheels"],
     knownFlaws: "Stone chips on hood; top requires manual operation by design (not a fault).",
     ownershipStory: "Enthusiast-owned, summers only, stored in a climate-controlled space each winter.",
     personalSignificance: "The purest open-top driver's car — selling only to fund the next project.",
     archiveNotes: "A 981 Boxster Spyder — manual, NA, and lightweight — documented and honestly presented.",
     provenanceHighlights: ["Two owners", "Garage-stored winters", "Manual gearbox"],
-    privacyStatus: "draft_public", sellerReadiness: 86, auctionReadiness: 81, completeness: 90,
+    privacyStatus: "public", sellerReadiness: 86, auctionReadiness: 81, completeness: 90,
     service: [
       { date: "2017-07-08", mileage: 8000, vendor: "Authorized dealer", category: "service", summary: "Oil service, inspection", cost: 460 },
       { date: "2020-06-19", mileage: 18000, vendor: "Independent specialist", category: "major service", summary: "Oil, brakes, tires", cost: 1650 },

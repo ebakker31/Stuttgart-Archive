@@ -1,25 +1,27 @@
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArchiveLabel, Separator } from "@/components/ui/misc";
+import { Separator } from "@/components/ui/misc";
 import { DemoDataBadge, PrivacyStatusBadge, SellerReadinessBadge, AuctionReadinessBadge } from "@/components/badges";
-import { formatMileage } from "@/lib/utils";
+import { VehicleImage } from "@/components/vehicle-image";
+import { formatCurrency, formatMileage } from "@/lib/utils";
 import type { DemoVehicle } from "@/lib/demo-data";
-import { Gauge, GitFork } from "lucide-react";
+import { Gauge, GitFork, Tag } from "lucide-react";
 
 /** A film-frame style vehicle card with an archival caption block. */
 export function VehicleCard({ v, href, isDemo = true }: { v: DemoVehicle; href?: string; isDemo?: boolean }) {
   const link = href ?? `/v/${v.slug}`;
+  const forSale = (v.saleStatus === "For sale" || v.ownershipStatus === "For sale") && !!v.askingPrice;
   return (
     <Card className="group overflow-hidden transition-shadow hover:shadow-archive-lg">
       <Link href={link}>
-        {/* Placeholder "photographic plate" — no official imagery */}
-        <div className="relative flex aspect-[16/10] items-center justify-center border-b border-border bg-gradient-to-br from-graphite/[0.06] to-graphite/[0.14] paper-grain">
-          <div className="text-center">
-            <div className="font-serif text-2xl text-graphite/40 dark:text-parchment/40">{v.year}</div>
-            <div className="archive-label mt-1">{v.exteriorColor}</div>
-          </div>
-          <div className="absolute left-3 top-3"><ArchiveLabel>Plate · {v.generation ?? v.model}</ArchiveLabel></div>
+        <div className="relative">
+          <VehicleImage v={v} className="aspect-[16/10] border-0 border-b" rounded={false} />
           {isDemo && <div className="absolute right-3 top-3"><DemoDataBadge /></div>}
+          {forSale && (
+            <div className="absolute bottom-3 right-3 rounded-sm border border-oxblood/40 bg-background/90 px-2.5 py-1 text-sm font-medium text-oxblood shadow-archive">
+              {formatCurrency(v.askingPrice)}
+            </div>
+          )}
         </div>
         <CardContent className="p-5">
           <div className="flex items-start justify-between gap-3">
@@ -33,6 +35,7 @@ export function VehicleCard({ v, href, isDemo = true }: { v: DemoVehicle; href?:
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
             <span className="inline-flex items-center gap-1.5"><Gauge className="h-3.5 w-3.5" /> {formatMileage(v.mileage)}</span>
             <span className="inline-flex items-center gap-1.5"><GitFork className="h-3.5 w-3.5" /> {v.drivetrain}</span>
+            {forSale && <span className="inline-flex items-center gap-1.5 text-oxblood"><Tag className="h-3.5 w-3.5" /> For sale</span>}
           </div>
           <div className="mt-4 flex flex-wrap gap-2">
             <SellerReadinessBadge score={v.sellerReadiness} />

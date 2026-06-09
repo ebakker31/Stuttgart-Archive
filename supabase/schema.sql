@@ -451,3 +451,87 @@ create trigger on_auth_user_created
 insert into storage.buckets (id, name, public)
 values ('vehicle-files', 'vehicle-files', false)
 on conflict (id) do nothing;
+
+-- =====================================================================
+-- Community ("The Paddock") — opt-in social layer
+-- =====================================================================
+create table if not exists community_profiles (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users(id) on delete cascade,
+  organization_id uuid references organizations(id) on delete set null,
+  handle text unique not null,
+  display_name text,
+  location text,
+  bio text,
+  is_public boolean not null default false,  -- members are private until they opt in
+  badges jsonb default '[]'::jsonb,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists follows (
+  id uuid primary key default gen_random_uuid(),
+  follower_user_id uuid not null references auth.users(id) on delete cascade,
+  followee_user_id uuid not null references auth.users(id) on delete cascade,
+  created_at timestamptz not null default now(),
+  unique (follower_user_id, followee_user_id)
+);
+
+create table if not exists community_posts (
+  id uuid primary key default gen_random_uuid(),
+  author_user_id uuid not null references auth.users(id) on delete cascade,
+  vehicle_id uuid references vehicles(id) on delete set null,
+  type text not null check (type in ('for_sale','modification','archive_update','joined')),
+  title text,
+  body text,
+  is_public boolean not null default true,    -- only published content is shared
+  like_count int not null default 0,
+  created_at timestamptz not null default now()
+);
+create index if not exists idx_posts_author on community_posts(author_user_id);
+
+create table if not exists post_comments (
+  id uuid primary key default gen_random_uuid(),
+  post_id uuid not null references community_posts(id) on delete cascade,
+  author_user_id uuid not null references auth.users(id) on delete cascade,
+  body text not null,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists post_likes (
+  id uuid primary key default gen_random_uuid(),
+  post_id uuid not null references community_posts(id) on delete cascade,
+  user_id uuid not null references auth.users(id) on delete cascade,
+  created_at timestamptz not null default now(),
+  unique (post_id, user_id)
+);
+
+-- RLS: public can read published/opt-in rows; users write only their own.
+alter table community_profiles enable row level security;
+drop policy if exists cp_read on community_profiles;
+create policy cp_read on community_profiles for select using (is_public = true or user_id = auth.uid());
+drop policy if exists cp_write on community_profiles;
+create policy cp_write on community_profiles for all using (user_id = auth.uid()) with check (user_id = auth.uid());
+
+alter table community_posts enable row level security;
+drop policy if exists post_read on community_posts;
+create policy post_read on community_posts for select using (is_public = true or author_user_id = auth.uid());
+drop policy if exists post_write on community_posts;
+create policy post_write on community_posts for all using (author_user_id = auth.uid()) with check (author_user_id = auth.uid());
+
+alter table follows enable row level security;
+drop policy if exists follow_rw on follows;
+create policy follow_rw on follows for all using (follower_user_id = auth.uid()) with check (follower_user_id = auth.uid());
+drop policy if exists follow_read on follows;
+create policy follow_read on follows for select using (true);
+
+alter table post_comments enable row level security;
+drop policy if exists comment_read on post_comments;
+create policy comment_read on post_comments for select using (true);
+drop policy if exists comment_write on post_comments;
+create policy comment_write on post_comments for all using (author_user_id = auth.uid()) with check (author_user_id = auth.uid());
+
+alter table post_likes enable row level security;
+drop policy if exists like_rw on post_likes;
+create policy like_rw on post_likes for all using (user_id = auth.uid()) with check (user_id = auth.uid());
+drop policy if exists like_read on post_likes;
+create policy like_read on post_likes for select using (true);

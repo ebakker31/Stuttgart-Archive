@@ -3,7 +3,7 @@ import { Wordmark } from "@/components/brand/logo";
 import { BRAND, FOOTER_DISCLAIMER } from "@/lib/brand";
 
 const COLS = [
-  { title: "Product", links: [["Digital Garage", "/#garage"], ["Pricing", "/pricing"], ["Demo Archive", "/demo"], ["Explore", "/explore"]] },
+  { title: "Product", links: [["Digital Garage", "/#garage"], ["Community", "/community"], ["Auction Radar", "/events"], ["Pricing", "/pricing"], ["Demo Archive", "/demo"], ["Explore", "/explore"]] },
   { title: "Trust", links: [["Privacy", "/privacy"], ["Terms & Disclaimer", "/terms"], ["Real-data-only AI", "/#real-data"]] },
   { title: "Company", links: [["Book a demo", "/book-demo"], ["Sign in", "/login"], ["Start your archive", "/signup"]] },
 ];

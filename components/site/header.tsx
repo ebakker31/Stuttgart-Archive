@@ -3,12 +3,11 @@ import { Wordmark } from "@/components/brand/logo";
 import { Button } from "@/components/ui/button";
 
 const NAV = [
-  ["For owners", "/#owner"],
-  ["For buyers", "/#buyer"],
-  ["For sellers", "/#seller"],
-  ["Auction prep", "/#auction"],
-  ["Pricing", "/pricing"],
   ["Explore", "/explore"],
+  ["Community", "/community"],
+  ["Auction Radar", "/events"],
+  ["For sellers", "/#seller"],
+  ["Pricing", "/pricing"],
 ];
 
 export function SiteHeader() {

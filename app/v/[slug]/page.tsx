@@ -8,7 +8,8 @@ import { DemoNotice } from "@/components/guardrails";
 import { DemoDataBadge, PrivacyStatusBadge } from "@/components/badges";
 import { ServiceTimeline, ModificationTimeline } from "@/components/timeline";
 import { LeadForm } from "@/components/lead-form";
-import { formatMileage, maskVin } from "@/lib/utils";
+import { formatCurrency, formatMileage, maskVin } from "@/lib/utils";
+import { VehicleImage } from "@/components/vehicle-image";
 
 export function generateStaticParams() {
   return DEMO_VEHICLES.map((v) => ({ slug: v.slug }));
@@ -44,8 +45,18 @@ export default function PublicVehiclePage({ params }: { params: { slug: string }
             <DemoDataBadge />
             <PrivacyStatusBadge status={v.privacyStatus} />
           </div>
-          <h1 className="mt-4 display text-5xl">{v.year} Porsche {v.model}</h1>
-          <p className="mt-2 text-lg text-muted-foreground">{v.trim ?? v.bodyStyle} · {v.exteriorColor} over {v.interiorColor}</p>
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <h1 className="mt-4 display text-5xl">{v.year} Porsche {v.model}</h1>
+              <p className="mt-2 text-lg text-muted-foreground">{v.trim ?? v.bodyStyle} · {v.exteriorColor} over {v.interiorColor}</p>
+            </div>
+            {forSale && v.askingPrice ? (
+              <div className="text-right">
+                <ArchiveLabel className="justify-end">Asking</ArchiveLabel>
+                <div className="font-serif text-4xl text-oxblood">{formatCurrency(v.askingPrice)}</div>
+              </div>
+            ) : null}
+          </div>
           <DemoNotice className="mt-5 max-w-md" />
         </div>
       </section>
@@ -53,7 +64,9 @@ export default function PublicVehiclePage({ params }: { params: { slug: string }
       <div className="container grid gap-10 py-12 lg:grid-cols-[1.6fr_1fr]">
         {/* Main column */}
         <div className="space-y-12">
-          {/* Photo plate placeholder */}
+          {/* Lead illustration (or licensed photo when provided) */}
+          <VehicleImage v={v} className="aspect-[16/9]" />
+          {/* Documented angles */}
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
             {v.photos.map((p, i) => (
               <div key={i} className="flex aspect-[4/3] flex-col items-center justify-center rounded-md border border-border bg-gradient-to-br from-graphite/[0.05] to-graphite/[0.12] p-3 text-center paper-grain">
