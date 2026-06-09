@@ -27,7 +27,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: { 
           <h1 className="mt-2 display text-4xl">{greeting()}{session.fullName ? `, ${session.fullName.split(" ")[0]}` : ""}.</h1>
           <p className="mt-2 text-muted-foreground">{modeInfo.description}</p>
         </div>
-        <Button href="/app/garage" variant="accent"><Plus className="h-4 w-4" /> {modeInfo.firstAction}</Button>
+        <Button href="/app/garage/new" variant="accent"><Plus className="h-4 w-4" /> {modeInfo.firstAction}</Button>
       </div>
 
       {/* Mode switcher */}

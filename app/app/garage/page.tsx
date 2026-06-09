@@ -17,7 +17,7 @@ export default async function GaragePage() {
           <h1 className="mt-2 display text-4xl">Your collection of records.</h1>
           <p className="mt-2 text-muted-foreground">{vehicles.length} vehicle{vehicles.length === 1 ? "" : "s"} in the archive.</p>
         </div>
-        <Button variant="accent"><Plus className="h-4 w-4" /> Add vehicle</Button>
+        <Button href="/app/garage/new" variant="accent"><Plus className="h-4 w-4" /> Add vehicle</Button>
       </div>
 
       {vehicles.length === 0 ? (
@@ -26,7 +26,7 @@ export default async function GaragePage() {
             <Archive className="h-8 w-8 text-muted-foreground" />
             <h2 className="mt-4 font-serif text-2xl">Your garage is empty.</h2>
             <p className="mt-2 max-w-sm text-muted-foreground">Add your Porsche to begin preserving its story — specs, records, photos, and provenance.</p>
-            <Button variant="accent" className="mt-6"><Plus className="h-4 w-4" /> Add your first vehicle</Button>
+            <Button href="/app/garage/new" variant="accent" className="mt-6"><Plus className="h-4 w-4" /> Add your first vehicle</Button>
           </CardContent>
         </Card>
       ) : (
