@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FEED, MEMBERS } from "@/lib/community";
 import { FeedCard } from "@/components/community/feed-card";
 import { FollowButton } from "@/components/community/interactions";
+import { PostComposer } from "@/components/community/post-composer";
 import { ArchiveLabel } from "@/components/ui/misc";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -41,6 +42,7 @@ export default function CommunityPage({ searchParams }: { searchParams: { type?:
       <div className="mt-8 grid gap-8 lg:grid-cols-[1.6fr_1fr]">
         {/* Feed */}
         <div>
+          <div className="mb-5"><PostComposer /></div>
           <div className="mb-5 flex flex-wrap gap-2">
             {FILTERS.map(([id, label]) => (
               <Link key={id} href={id === "all" ? "/community" : `/community?type=${id}`} className={`rounded-full border px-3 py-1 text-sm transition-colors ${type === id ? "border-oxblood/40 bg-oxblood/5 text-oxblood" : "border-border text-muted-foreground hover:text-foreground"}`}>

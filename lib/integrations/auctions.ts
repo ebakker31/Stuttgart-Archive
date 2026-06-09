@@ -139,7 +139,48 @@ export const curatedAuctionProvider: AuctionFeedProvider = {
   },
 };
 
-/** Resolve the active provider. Swap in a licensed live feed when available. */
+/**
+ * Live-feed provider. Set AUCTION_FEED_URL to an authorized JSON endpoint that
+ * returns an array of AuctionEvent objects (your own admin feed, a licensed
+ * partner, or an affiliate API). Falls back to the curated list on any error so
+ * the page never breaks.
+ */
+export function liveAuctionProvider(url: string): AuctionFeedProvider {
+  return {
+    id: "live",
+    async listUpcoming() {
+      try {
+        const res = await fetch(url, { next: { revalidate: 3600 } });
+        if (!res.ok) return CURATED;
+        const data = await res.json();
+        const events = Array.isArray(data) ? data : data?.events;
+        if (!Array.isArray(events) || !events.length) return CURATED;
+        // Trust only the fields we expect; ignore anything else.
+        return events.map((e: any, i: number) => ({
+          id: String(e.id ?? `live-${i}`),
+          name: String(e.name ?? "Auction"),
+          organizer: String(e.organizer ?? ""),
+          location: String(e.location ?? ""),
+          window: String(e.window ?? e.date ?? "TBA"),
+          format: e.format === "online" ? "online" : "in_person",
+          url: String(e.url ?? "#"),
+          note: String(e.note ?? ""),
+        })) as AuctionEvent[];
+      } catch {
+        return CURATED;
+      }
+    },
+  };
+}
+
+/** Resolve the active provider — live feed when configured, else curated. */
 export async function getUpcomingAuctions(): Promise<AuctionEvent[]> {
-  return curatedAuctionProvider.listUpcoming();
+  const url = process.env.AUCTION_FEED_URL;
+  const provider = url ? liveAuctionProvider(url) : curatedAuctionProvider;
+  return provider.listUpcoming();
+}
+
+/** Whether a live feed is configured (for UI labeling). */
+export function auctionFeedIsLive(): boolean {
+  return Boolean(process.env.AUCTION_FEED_URL);
 }

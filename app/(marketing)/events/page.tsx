@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getUpcomingAuctions } from "@/lib/integrations/auctions";
+import { getUpcomingAuctions, auctionFeedIsLive } from "@/lib/integrations/auctions";
 import { ArchiveLabel, Separator } from "@/components/ui/misc";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 
 export default async function EventsPage() {
   const events = await getUpcomingAuctions();
+  const isLive = auctionFeedIsLive();
   const inPerson = events.filter((e) => e.format === "in_person");
   const online = events.filter((e) => e.format === "online");
 
@@ -20,7 +21,10 @@ export default async function EventsPage() {
     <div>
       <section className="border-b border-border bg-card/40">
         <div className="container py-16">
-          <ArchiveLabel>Auction Radar · News & events</ArchiveLabel>
+          <div className="flex items-center gap-3">
+            <ArchiveLabel>Auction Radar · News & events</ArchiveLabel>
+            <Badge variant={isLive ? "success" : "muted"}>{isLive ? "Live feed" : "Curated"}</Badge>
+          </div>
           <h1 className="mt-4 display text-5xl">Where great Porsches change hands.</h1>
           <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
             An independent calendar of upcoming collector-car auctions and marketplaces relevant to Porsche

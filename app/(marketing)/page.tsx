@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArchiveLabel, MuseumCaption, Separator } from "@/components/ui/misc";
 import { FAQAccordion } from "@/components/faq-accordion";
+import { WaitlistForm } from "@/components/waitlist-form";
 import { USER_MODES } from "@/lib/brand";
 import { PLANS } from "@/lib/payments/plans";
 import {
@@ -229,6 +230,33 @@ export default function LandingPage() {
             <p className="mt-4 text-muted-foreground">Still curious? <Link href="/book-demo" className="text-oxblood hover:underline">Book a walkthrough</Link>.</p>
           </div>
           <FAQAccordion items={FAQ} />
+        </div>
+      </section>
+
+      {/* ---------------- FOUNDING MEMBERS ---------------- */}
+      <section className="border-b border-border bg-card/40">
+        <div className="container grid items-center gap-10 py-20 lg:grid-cols-[1fr_1fr]">
+          <div>
+            <ArchiveLabel>Founding members</ArchiveLabel>
+            <h2 className="mt-3 display text-4xl">Be among the first archivists.</h2>
+            <p className="mt-4 leading-relaxed text-muted-foreground">
+              We're opening Stuttgart Archive to a first group of owners, collectors, and sellers who care about
+              doing this right. Founding members get early access, a say in the roadmap, and recognition on the
+              cars they document.
+            </p>
+            <ul className="mt-5 space-y-2 text-sm">
+              {["Early access to every tool", "Founding-member badge on your profile", "Direct line to shape the product"].map((t) => (
+                <li key={t} className="flex gap-2"><CheckCircle2 className="h-4 w-4 shrink-0 text-oxblood" /> {t}</li>
+              ))}
+            </ul>
+          </div>
+          <Card className="shadow-archive-lg">
+            <CardContent className="p-7">
+              <ArchiveLabel>Request access</ArchiveLabel>
+              <p className="mt-2 text-sm text-muted-foreground">Free to join. No card required.</p>
+              <div className="mt-5"><WaitlistForm /></div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 

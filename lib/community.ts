@@ -46,9 +46,9 @@ export interface FeedItem {
 export const MEMBERS: Member[] = [
   {
     handle: "graphite-garage", name: "Daniel R.", location: "Portland, OR",
-    bio: "Air-cooled devotee. Documenting a 993 I plan to keep forever.",
+    bio: "Air-cooled devotee. Documenting a 964 I plan to keep forever.",
     joined: "2025-11", followers: 312, following: 88,
-    vehicleSlugs: ["1997-911-carrera-coupe", "2018-911-carrera-s"],
+    vehicleSlugs: ["1991-911-carrera-964", "2018-911-carrera-s"],
     badges: ["Air-cooled", "Long-term owner"], isDemo: true,
   },
   {
@@ -93,8 +93,8 @@ export const FEED: FeedItem[] = [
     ],
   },
   {
-    id: "f3", type: "archive_update", memberHandle: "graphite-garage", vehicleSlug: "1997-911-carrera-coupe",
-    title: "Annual service done on the 993 — records uploaded",
+    id: "f3", type: "archive_update", memberHandle: "graphite-garage", vehicleSlug: "1991-911-carrera-964",
+    title: "Annual service done on the 964 — records uploaded",
     body: "Valve adjustment and fresh fluids by my air-cooled specialist. Completeness score just ticked up.",
     date: "2026-06-03", likes: 38, comments: [],
   },
