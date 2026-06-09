@@ -36,18 +36,15 @@ async function main() {
   const centerAt = (p, s, fo, sz, cx, y, col, tr = 0) => tracked(p, s, cx - tw(s, fo, sz, tr) / 2, y, fo, sz, col, tr);
   const label = (p, s, x, y, c = RED) => tracked(p, s.toUpperCase(), x, y, sansBold, 8, c, 2.4);
 
-  // ELEVATED logo: stacked spaced-caps + hairline rule + red diamond
+  // CHOSEN logo: editorial masthead — Cormorant caps between two fine rules
   const elevated = (p, cx, cy, scale, dark) => {
     const ink = dark ? PARCH : INK;
-    const sz = 16 * scale;
-    centerAt(p, "STUTTGART", cormorant, sz, cx, cy + 11 * scale, ink, 3 * scale);
-    const ruleW = tw("STUTTGART", cormorant, sz, 3 * scale);
-    const ry = cy + 2 * scale;
-    const gap = 7 * scale;
-    p.drawLine({ start: { x: cx - ruleW / 2, y: ry }, end: { x: cx - gap, y: ry }, thickness: 0.7 * scale, color: dark ? rgb(0.5, 0.51, 0.53) : LINE });
-    p.drawLine({ start: { x: cx + gap, y: ry }, end: { x: cx + ruleW / 2, y: ry }, thickness: 0.7 * scale, color: dark ? rgb(0.5, 0.51, 0.53) : LINE });
-    p.drawRectangle({ x: cx - 2.4 * scale, y: ry - 2.4 * scale, width: 4.8 * scale, height: 4.8 * scale, color: RED, rotate: degrees(45) });
-    centerAt(p, "ARCHIVE", cormorant, sz, cx, cy - 14 * scale, ink, 7 * scale);
+    const ruleCol = dark ? rgb(0.55, 0.56, 0.58) : INK;
+    const sz = 15 * scale;
+    const halfW = tw("STUTTGART ARCHIVE", cormorant, sz, 3.5 * scale) / 2 + 14 * scale;
+    p.drawLine({ start: { x: cx - halfW, y: cy + 13 * scale }, end: { x: cx + halfW, y: cy + 13 * scale }, thickness: 0.8 * scale, color: ruleCol });
+    centerAt(p, "STUTTGART ARCHIVE", cormorant, sz, cx, cy - 5 * scale, ink, 3.5 * scale);
+    p.drawLine({ start: { x: cx - halfW, y: cy - 13 * scale }, end: { x: cx + halfW, y: cy - 13 * scale }, thickness: 0.8 * scale, color: ruleCol });
   };
 
   // Page 1 — the elevated logo
@@ -56,7 +53,7 @@ async function main() {
     label(p, "Primary logo — elevated", M, PH - 70);
     p.drawRectangle({ x: M, y: PH - 340, width: PW - 2 * M, height: 230, color: INK });
     elevated(p, PW / 2, PH - 222, 2.0, true);
-    centerAt(p, "stacked spaced-capitals · hairline rule · single red diamond", hanken, 9, PW / 2, PH - 330, SILVER);
+    centerAt(p, "editorial masthead — Cormorant caps between fine rules", hanken, 9, PW / 2, PH - 330, SILVER);
     p.drawRectangle({ x: M, y: PH - 545, width: PW - 2 * M, height: 175, color: CARD, borderColor: LINE, borderWidth: 0.8 });
     elevated(p, PW / 2, PH - 455, 1.6, false);
     centerAt(p, "on parchment (site default)", hanken, 9, PW / 2, PH - 535, MUTED);
@@ -70,12 +67,12 @@ async function main() {
   // Page 2 — before / after + alternatives
   {
     const p = doc.addPage([PW, PH]); p.drawRectangle({ x: 0, y: 0, width: PW, height: PH, color: PARCH });
-    label(p, "Why this is more Sotheby's-grade", M, PH - 70);
+    label(p, "Why the masthead works", M, PH - 70);
     let y = PH - 110;
     const notes = [
       "No tagline or coloured bar inside the mark — the name stands alone, like the auction houses.",
-      "Spaced capitals read monumental and intentional; the shorter word is tracked wider so both align.",
-      "Colour appears once, as a small diamond — restraint signals heritage, not start-up.",
+      "Spaced capitals between two fine rules read editorial and monumental — an auction-house masthead.",
+      "Colour stays out of the mark entirely — pure ink — the disciplined, heritage way.",
       "Pairs an elegant display serif (Cormorant) with a clean modern sans (Hanken Grotesk).",
     ];
     notes.forEach((n) => { p.drawText("—", { x: M, y, size: 10, font: cormorant, color: RED }); wrap(p, n, M + 16, y, hanken, 10, INK, PW - 2 * M - 16, 14); y -= 30; });
@@ -92,7 +89,7 @@ async function main() {
     const ax = M + (PW - 2 * M - 20) * 0.75 + 20;
     p.drawRectangle({ x: M + (PW - 2 * M - 20) / 2 + 20, y: y - 70, width: (PW - 2 * M - 20) / 2, height: 70, color: INK });
     elevated(p, ax, y - 33, 1.15, true);
-    centerAt(p, "elevated — stacked caps + diamond", hanken, 7, ax, y - 60, SILVER);
+    centerAt(p, "chosen — editorial masthead", hanken, 7, ax, y - 60, SILVER);
 
     // alternatives
     y -= 110;
