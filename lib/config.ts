@@ -70,6 +70,13 @@ export const config = {
   appStore: {
     sharedSecret: process.env.APP_STORE_SHARED_SECRET || "",
   },
+
+  stockPhotos: {
+    pexelsKey: process.env.PEXELS_API_KEY || "",
+    unsplashKey: process.env.UNSPLASH_ACCESS_KEY || "",
+    // "loremflickr" enables no-key demo photos; otherwise illustrations are used.
+    source: (process.env.DEMO_PHOTO_SOURCE || "").toLowerCase(),
+  },
 } as const;
 
 export function isAdminEmail(email?: string | null) {
