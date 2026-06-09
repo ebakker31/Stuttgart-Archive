@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { Wordmark } from "@/components/brand/logo";
 import {
   LayoutDashboard, Archive, Eye, ShoppingCart, Tag, Gem, Gavel, Store,
-  GitCompare, Inbox, Settings, CreditCard, ShieldCheck, Search, Users, CalendarClock,
+  GitCompare, Inbox, Settings, CreditCard, ShieldCheck, Search, Users, CalendarClock, ScrollText,
 } from "lucide-react";
 
 const NAV: { section: string; items: [string, string, any][] }[] = [
@@ -36,6 +36,7 @@ const NAV: { section: string; items: [string, string, any][] }[] = [
     section: "Account",
     items: [
       ["Leads", "/app/leads", Inbox],
+      ["Bill of Sale", "/app/tools/bill-of-sale", ScrollText],
       ["Billing", "/app/billing", CreditCard],
       ["Settings", "/app/settings", Settings],
       ["Quality", "/app/admin/quality", ShieldCheck],

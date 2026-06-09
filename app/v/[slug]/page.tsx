@@ -8,6 +8,7 @@ import { DemoNotice } from "@/components/guardrails";
 import { DemoDataBadge, PrivacyStatusBadge } from "@/components/badges";
 import { ServiceTimeline, ModificationTimeline } from "@/components/timeline";
 import { LeadForm } from "@/components/lead-form";
+import { OfferForm } from "@/components/offer-form";
 import { formatCurrency, formatMileage, maskVin } from "@/lib/utils";
 import { VehicleImage } from "@/components/vehicle-image";
 
@@ -127,11 +128,22 @@ export default function PublicVehiclePage({ params }: { params: { slug: string }
             </CardContent>
           </Card>
 
-          {forSale && (
+          {forSale ? (
             <Card className="border-oxblood/30">
               <CardContent className="p-6">
-                <ArchiveLabel className="text-oxblood">Request information</ArchiveLabel>
-                <p className="mt-2 text-sm text-muted-foreground">Interested? Send the seller a note. No reply is sent automatically.</p>
+                <ArchiveLabel className="text-oxblood">Make an offer</ArchiveLabel>
+                <p className="mt-2 text-sm text-muted-foreground">Submit an offer to the seller. No reply is sent automatically.</p>
+                <div className="mt-4"><OfferForm vehicle={`${v.year} ${v.model}`} askingPrice={v.askingPrice} /></div>
+                <p className="mt-3 text-xs text-muted-foreground">
+                  <a href="/selling" className="text-oxblood hover:underline">How buying &amp; selling works →</a>
+                </p>
+              </CardContent>
+            </Card>
+          ) : (
+            <Card>
+              <CardContent className="p-6">
+                <ArchiveLabel>Request information</ArchiveLabel>
+                <p className="mt-2 text-sm text-muted-foreground">Not listed for sale. You can still send the owner a note.</p>
                 <div className="mt-4"><LeadForm vehicle={`${v.year} ${v.model}`} /></div>
               </CardContent>
             </Card>

@@ -6,7 +6,7 @@ const NAV = [
   ["Explore", "/explore"],
   ["Community", "/community"],
   ["Auction Radar", "/events"],
-  ["For sellers", "/#seller"],
+  ["Selling", "/selling"],
   ["Pricing", "/pricing"],
 ];
 

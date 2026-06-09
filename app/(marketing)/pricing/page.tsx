@@ -75,7 +75,14 @@ export default function PricingPage() {
         </div>
       </div>
 
-      <p className="mx-auto mt-14 max-w-2xl text-center text-sm text-muted-foreground">
+      <div className="mx-auto mt-14 max-w-2xl rounded-md border border-border bg-card/50 p-5 text-center">
+        <p className="text-sm text-foreground/80">
+          <span className="font-medium">Selling a car?</span> Listing is free — the buyer pays a transparent 5%
+          premium (min $250, max $5,000) only at a successful sale, with the car payment handled via licensed
+          escrow. <a href="/selling" className="text-oxblood hover:underline">How buying &amp; selling works →</a>
+        </p>
+      </div>
+      <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-muted-foreground">
         Payments are processed securely by Stripe on the web. In-app purchases on a future iOS app will be
         handled by the App Store. You can manage or cancel any subscription from your billing settings.
       </p>

@@ -535,3 +535,29 @@ drop policy if exists like_rw on post_likes;
 create policy like_rw on post_likes for all using (user_id = auth.uid()) with check (user_id = auth.uid());
 drop policy if exists like_read on post_likes;
 create policy like_read on post_likes for select using (true);
+
+-- =====================================================================
+-- Marketplace offers (buyer's-fee model)
+-- =====================================================================
+create table if not exists offers (
+  id uuid primary key default gen_random_uuid(),
+  organization_id uuid references organizations(id) on delete cascade,
+  vehicle_id uuid references vehicles(id) on delete set null,
+  public_page_id uuid references public_pages(id) on delete set null,
+  buyer_name text,
+  buyer_email text,
+  amount numeric,
+  message text,
+  status text not null default 'new' check (status in ('new','countered','accepted','declined','withdrawn','closed')),
+  source text,
+  created_at timestamptz not null default now()
+);
+create index if not exists idx_offers_vehicle on offers(vehicle_id);
+
+alter table offers enable row level security;
+drop policy if exists offers_org on offers;
+-- Sellers see offers for their org; public submissions are inserted via the
+-- service-role API route (which bypasses RLS), so no public insert policy is needed.
+create policy offers_org on offers
+  using (organization_id = current_org_id())
+  with check (organization_id = current_org_id());

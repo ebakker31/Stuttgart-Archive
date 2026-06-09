@@ -1,6 +1,24 @@
 import { describe, it, expect } from "vitest";
 import { generateSellerPacketPdf } from "@/lib/pdf/seller-packet";
+import { generateBillOfSalePdf } from "@/lib/pdf/bill-of-sale";
 import { FOOTER_DISCLAIMER } from "@/lib/brand";
+
+describe("Bill of Sale PDF generation", () => {
+  it("produces a valid PDF from party + vehicle details", async () => {
+    const bytes = await generateBillOfSalePdf({
+      sellerName: "Daniel R.", buyerName: "A. Becker",
+      year: 1991, make: "Porsche", model: "911 Carrera 2", vin: "WP0AB2960MS400000",
+      mileage: 68400, color: "Grand Prix White", salePrice: 74500, location: "Portland, OR",
+    });
+    expect(new TextDecoder().decode(bytes.slice(0, 5))).toBe("%PDF-");
+    expect(bytes.byteLength).toBeGreaterThan(1000);
+  });
+
+  it("handles empty/blank inputs without throwing", async () => {
+    const bytes = await generateBillOfSalePdf({ sellerName: "", buyerName: "" });
+    expect(new TextDecoder().decode(bytes.slice(0, 5))).toBe("%PDF-");
+  });
+});
 
 describe("Seller packet PDF generation", () => {
   it("produces a valid, non-trivial PDF document", async () => {
