@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArchiveLabel, MuseumCaption, Separator } from "@/components/ui/misc";
+import { ArchiveLabel, MuseumCaption, Separator, Eyebrow, DiamondRule } from "@/components/ui/misc";
 import { FAQAccordion } from "@/components/faq-accordion";
 import { WaitlistForm } from "@/components/waitlist-form";
+import { VehicleImage } from "@/components/vehicle-image";
+import { getDemoVehicle } from "@/lib/demo-data";
 import { USER_MODES } from "@/lib/brand";
 import { PLANS } from "@/lib/payments/plans";
 import {
@@ -19,7 +21,7 @@ export default function LandingPage() {
         <div className="absolute inset-0 paper-grain opacity-70" aria-hidden />
         <div className="container relative grid gap-12 py-20 md:py-28 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
-            <ArchiveLabel>Independent · Privacy-first · Collector-grade</ArchiveLabel>
+            <Eyebrow>Independent · Privacy-first · Collector-grade</Eyebrow>
             <h1 className="mt-5 display text-balance text-5xl leading-[1.05] md:text-6xl">
               Preserve the story<br />behind the machine.
             </h1>
@@ -34,19 +36,20 @@ export default function LandingPage() {
             <p className="mt-5 text-sm text-muted-foreground">Free to start · 3 vehicles · No card required</p>
           </div>
 
-          {/* Archival "index card" hero panel — original, no official imagery */}
+          {/* Archival "file" hero panel — the demo 964, original artwork or photo */}
           <div className="relative">
-            <Card className="rotate-[-1deg] shadow-archive-lg">
+            <Card className="shadow-archive-lg">
               <CardContent className="p-7">
                 <div className="flex items-center justify-between">
                   <ArchiveLabel>Archive file</ArchiveLabel>
-                  <ArchiveLabel>No. 0993</ArchiveLabel>
+                  <ArchiveLabel>No. 0964</ArchiveLabel>
                 </div>
                 <Separator className="my-4" />
-                <div className="font-serif text-2xl">1997 911 Carrera</div>
-                <div className="text-sm text-muted-foreground">993 · Arena Red Metallic · Cashmere</div>
+                <VehicleImage v={getDemoVehicle("1991-911-carrera-964")!} className="aspect-[16/10]" showLabels={false} />
+                <div className="mt-4 font-serif text-2xl leading-tight">1991 911 Carrera 2</div>
+                <div className="text-sm text-muted-foreground">964 · Grand Prix White · Tan</div>
                 <div className="mt-5 grid grid-cols-3 gap-4 text-center">
-                  {[["Records", "since 1990s"], ["Owners", "three"], ["Service", "specialist"]].map(([k, v]) => (
+                  {[["Records", "specialist"], ["Owners", "documented"], ["Status", "air-cooled"]].map(([k, v]) => (
                     <div key={k}>
                       <div className="archive-label">{k}</div>
                       <div className="mt-1 font-serif text-sm">{v}</div>
@@ -54,14 +57,16 @@ export default function LandingPage() {
                   ))}
                 </div>
                 <Separator className="my-4" />
-                <MuseumCaption>The last air-cooled 911 — preserved, documented, and handled with care.</MuseumCaption>
-                <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
-                  <Clock className="h-3.5 w-3.5" /> Service timeline · <FolderArchive className="h-3.5 w-3.5" /> Paperwork vault · <Lock className="h-3.5 w-3.5" /> Private by default
+                <MuseumCaption>An air-cooled 911 — preserved, documented, and handled with care.</MuseumCaption>
+                <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted-foreground">
+                  <Clock className="h-3.5 w-3.5" /> Service timeline <span className="text-oxblood">·</span> <FolderArchive className="h-3.5 w-3.5" /> Paperwork vault <span className="text-oxblood">·</span> <Lock className="h-3.5 w-3.5" /> Private by default
                 </div>
               </CardContent>
             </Card>
-            <div className="absolute -bottom-4 -right-3 hidden rotate-[2deg] sm:block">
-              <span className="rounded-sm border border-oxblood/40 bg-background px-3 py-1.5 text-xs text-oxblood shadow-archive">Handled with care</span>
+            <div className="absolute -bottom-4 -right-3 hidden sm:block">
+              <span className="inline-flex items-center gap-1.5 rounded-sm border border-border bg-background px-3 py-1.5 text-xs text-foreground shadow-archive">
+                <span className="h-[5px] w-[5px] rotate-45" style={{ background: "var(--brand-red)" }} /> Handled with care
+              </span>
             </div>
           </div>
         </div>
@@ -82,7 +87,7 @@ export default function LandingPage() {
       <section className="border-b border-border bg-card/40">
         <div className="container py-20">
           <div className="mx-auto max-w-3xl text-center">
-            <ArchiveLabel className="justify-center">Built for cars with a story</ArchiveLabel>
+            <Eyebrow className="justify-center">Built for cars with a story</Eyebrow>
             <h2 className="mt-4 display text-4xl">Some cars deserve more than a folder of receipts.</h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               Every Porsche carries years of engineering, design, racing heritage, craftsmanship, and time.
@@ -111,7 +116,7 @@ export default function LandingPage() {
       {/* ---------------- HOW IT WORKS ---------------- */}
       <section className="border-b border-border">
         <div className="container py-20">
-          <ArchiveLabel>How it works</ArchiveLabel>
+          <Eyebrow>How it works</Eyebrow>
           <h2 className="mt-3 display text-4xl">Three steps to a documented archive.</h2>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             {[
@@ -136,7 +141,7 @@ export default function LandingPage() {
       {/* ---------------- WHO IT'S FOR ---------------- */}
       <section className="border-b border-border">
         <div className="container py-20">
-          <ArchiveLabel>Who it's for</ArchiveLabel>
+          <Eyebrow>Who it's for</Eyebrow>
           <h2 className="mt-3 display text-4xl">One archive, every kind of enthusiast.</h2>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {USER_MODES.filter((m) => m.id !== "browse").map((m) => (
@@ -194,7 +199,7 @@ export default function LandingPage() {
         <div className="container py-20">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <ArchiveLabel>Pricing</ArchiveLabel>
+              <Eyebrow>Pricing</Eyebrow>
               <h2 className="mt-3 display text-4xl">Free to start. Upgrade only if you need to.</h2>
             </div>
             <Button href="/pricing" variant="outline">See all plans <ArrowRight className="h-4 w-4" /></Button>
@@ -225,7 +230,7 @@ export default function LandingPage() {
       <section className="border-b border-border bg-card/40">
         <div className="container grid gap-12 py-20 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <ArchiveLabel>Questions</ArchiveLabel>
+            <Eyebrow>Questions</Eyebrow>
             <h2 className="mt-3 display text-4xl">Good to know.</h2>
             <p className="mt-4 text-muted-foreground">Still curious? <Link href="/book-demo" className="text-oxblood hover:underline">Book a walkthrough</Link>.</p>
           </div>
@@ -237,7 +242,7 @@ export default function LandingPage() {
       <section className="border-b border-border bg-card/40">
         <div className="container grid items-center gap-10 py-20 lg:grid-cols-[1fr_1fr]">
           <div>
-            <ArchiveLabel>Founding members</ArchiveLabel>
+            <Eyebrow>Founding members</Eyebrow>
             <h2 className="mt-3 display text-4xl">Be among the first archivists.</h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
               We're opening Stuttgart Archive to a first group of owners, collectors, and sellers who care about
@@ -289,7 +294,7 @@ function FeaturePillars() {
   return (
     <section className="border-b border-border">
       <div className="container py-20">
-        <ArchiveLabel>What's inside</ArchiveLabel>
+        <Eyebrow>What's inside</Eyebrow>
         <h2 className="mt-3 display text-4xl">Seven tools. One coherent archive.</h2>
         <div className="mt-12 space-y-16">
           {pillars.map((p, i) => (

@@ -36,3 +36,29 @@ export function Stat({ label, value }: { label: string; value: React.ReactNode }
     </div>
   );
 }
+
+/** Small Porsche-red diamond — the brand's through-line accent. */
+export function Diamond({ className }: { className?: string }) {
+  return <span className={cn("inline-block h-[5px] w-[5px] rotate-45", className)} style={{ background: "var(--brand-red)" }} aria-hidden />;
+}
+
+/** Section eyebrow: red diamond + tracked small-caps label (echoes the logo). */
+export function Eyebrow({ children, className }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div className={cn("flex items-center gap-2", className)}>
+      <Diamond />
+      <span className="archive-label">{children}</span>
+    </div>
+  );
+}
+
+/** Hairline divider centred on a red diamond (echoes the wordmark rule). */
+export function DiamondRule({ className }: { className?: string }) {
+  return (
+    <div className={cn("flex items-center gap-3", className)} aria-hidden>
+      <span className="h-px flex-1 bg-border" />
+      <Diamond className="h-[6px] w-[6px]" />
+      <span className="h-px flex-1 bg-border" />
+    </div>
+  );
+}

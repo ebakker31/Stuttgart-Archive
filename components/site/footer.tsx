@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Wordmark } from "@/components/brand/logo";
+import { DiamondRule } from "@/components/ui/misc";
 import { BRAND, FOOTER_DISCLAIMER } from "@/lib/brand";
 
 const COLS = [
@@ -34,7 +35,8 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-12 hairline pt-6">
+        <DiamondRule className="mt-12" />
+        <div className="mt-6">
           <p className="text-xs leading-relaxed text-muted-foreground/90">{FOOTER_DISCLAIMER}</p>
           <p className="mt-4 text-xs text-muted-foreground/70">© {new Date().getFullYear()} {BRAND.name}. An independent platform.</p>
         </div>
