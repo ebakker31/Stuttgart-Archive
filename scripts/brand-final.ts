@@ -46,7 +46,7 @@ async function main() {
       p.drawLine({ start: { x: px, y: py }, end: { x: px - sx * ck, y: py }, thickness: 1.4, color: RED });
       p.drawLine({ start: { x: px, y: py }, end: { x: px, y: py - sy * ck }, thickness: 1.4, color: RED });
     }
-    centerAt(p, "Stuttgart Archive", cormorant, 27 * scale, cx, cy + 1, RED, 0.4);
+    centerAt(p, "Stuttgart Archive", cormorant, 27 * scale, cx, cy + 1, ink, 0.4);
     centerAt(p, "EST. FOR THE MARQUE", hanken, 6.5 * scale, cx, cy - 18 * scale, dark ? SILVER : MUTED, 3);
   };
 
@@ -67,8 +67,8 @@ async function main() {
     nameplateMono(p, M + 40, 150, cormorant);
     p.drawRectangle({ x: M + 110, y: 120, width: 90, height: 54, color: RED });
     tracked(p, "#C8102E", M + 116, 100, hanken, 8, MUTED, 0.5);
-    tracked(p, "Porsche-inspired carmine", M + 116, 88, hanken, 7, MUTED, 0.3);
-    centerAt(p, "Cormorant Garamond · red wordmark · SA monogram for the favicon", hanken, 8.5, PW / 2 + 30, 150, MUTED);
+    tracked(p, "red accent only (corner ticks)", M + 116, 88, hanken, 7, MUTED, 0.3);
+    centerAt(p, "Cormorant Garamond · dark/white wordmark · SA monogram favicon", hanken, 8.5, PW / 2 + 30, 150, MUTED);
   }
 
   // ---- Page 2: type system ----
@@ -101,8 +101,8 @@ async function main() {
 
   function nameplateMono(p, cx, cy, fo) {
     p.drawRectangle({ x: cx - 26, y: cy - 26, width: 52, height: 52, color: CARD, borderColor: LINE, borderWidth: 0.8 });
-    centerAt(p, "SA", fo, 28, cx, cy - 9, RED, 1);
-    p.drawLine({ start: { x: cx - 14, y: cy - 16 }, end: { x: cx + 14, y: cy - 16 }, thickness: 1.2, color: RED });
+    centerAt(p, "SA", fo, 28, cx, cy - 9, INK, 1);
+    p.drawLine({ start: { x: cx - 10, y: cy - 16 }, end: { x: cx + 10, y: cy - 16 }, thickness: 1.2, color: RED });
   }
   function wrapText(p, text, x, y, fo, size, color, maxW, lh) {
     const words = text.split(" "); let line = "", yy = y;
