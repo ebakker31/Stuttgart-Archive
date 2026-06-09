@@ -35,40 +35,34 @@ async function main() {
   const centerAt = (p, s, fo, sz, cx, y, col, tr = 0) => tracked(p, s, cx - tw(s, fo, sz, tr) / 2, y, fo, sz, col, tr);
   const label = (p, s, x, y, c = RED) => tracked(p, s.toUpperCase(), x, y, sansBold, 8, c, 2.4);
 
-  // framed nameplate logo, centered at cx,cy
+  // primary logo: wordmark + red heritage bar + descriptive line, centered at cx,cy
   const nameplate = (p, cx, cy, scale, dark) => {
     const ink = dark ? PARCH : INK;
-    const w = 230 * scale, h = 70 * scale;
-    p.drawRectangle({ x: cx - w / 2, y: cy - h / 2, width: w, height: h, borderColor: dark ? rgb(0.55, 0.56, 0.58) : LINE, borderWidth: 1 });
-    const ck = 9 * scale;
-    for (const [sx, sy] of [[-1, -1], [1, -1], [-1, 1], [1, 1]]) {
-      const px = cx + sx * (w / 2), py = cy + sy * (h / 2);
-      p.drawLine({ start: { x: px, y: py }, end: { x: px - sx * ck, y: py }, thickness: 1.4, color: RED });
-      p.drawLine({ start: { x: px, y: py }, end: { x: px, y: py - sy * ck }, thickness: 1.4, color: RED });
-    }
-    centerAt(p, "Stuttgart Archive", cormorant, 27 * scale, cx, cy + 1, ink, 0.4);
-    centerAt(p, "EST. FOR THE MARQUE", hanken, 6.5 * scale, cx, cy - 18 * scale, dark ? SILVER : MUTED, 3);
+    centerAt(p, "Stuttgart Archive", cormorant, 30 * scale, cx, cy + 6 * scale, ink, 0.4);
+    const bw = 46 * scale;
+    p.drawRectangle({ x: cx - bw / 2, y: cy - 14 * scale, width: bw, height: 3.5 * scale, color: RED });
+    centerAt(p, "AN INDEPENDENT PORSCHE ARCHIVE", hanken, 6.5 * scale, cx, cy - 30 * scale, dark ? SILVER : MUTED, 2.5);
   };
 
   // ---- Page 1: the logo (dark hero + light) ----
   {
     const p = doc.addPage([PW, PH]);
     p.drawRectangle({ x: 0, y: 0, width: PW, height: PH, color: PARCH });
-    label(p, "Primary logo — Framed Nameplate", M, PH - 70);
+    label(p, "Primary logo", M, PH - 70);
     // dark hero
     p.drawRectangle({ x: M, y: PH - 330, width: PW - 2 * M, height: 220, color: INK });
     nameplate(p, PW / 2, PH - 220, 1.35, true);
-    centerAt(p, "the one you liked — on graphite", hanken, 9, PW / 2, PH - 320, SILVER);
+    centerAt(p, "wordmark + red heritage bar, on graphite", hanken, 9, PW / 2, PH - 320, SILVER);
     // light
     p.drawRectangle({ x: M, y: PH - 540, width: PW - 2 * M, height: 180, color: CARD, borderColor: LINE, borderWidth: 0.8 });
     nameplate(p, PW / 2, PH - 450, 1.15, false);
-    centerAt(p, "same logo on parchment (site default)", hanken, 9, PW / 2, PH - 530, MUTED);
+    centerAt(p, "the same logo on parchment (site default)", hanken, 9, PW / 2, PH - 530, MUTED);
     // monogram + color
     nameplateMono(p, M + 40, 150, cormorant);
     p.drawRectangle({ x: M + 110, y: 120, width: 90, height: 54, color: RED });
     tracked(p, "#C8102E", M + 116, 100, hanken, 8, MUTED, 0.5);
-    tracked(p, "red accent only (corner ticks)", M + 116, 88, hanken, 7, MUTED, 0.3);
-    centerAt(p, "Cormorant Garamond · dark/white wordmark · SA monogram favicon", hanken, 8.5, PW / 2 + 30, 150, MUTED);
+    tracked(p, "Porsche-inspired heritage red", M + 116, 88, hanken, 7, MUTED, 0.3);
+    centerAt(p, "Cormorant Garamond · dark/white wordmark · red heritage bar · SA favicon", hanken, 8, PW / 2 + 30, 150, MUTED);
   }
 
   // ---- Page 2: type system ----
