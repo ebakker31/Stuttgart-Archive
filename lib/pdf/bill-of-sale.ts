@@ -51,13 +51,13 @@ export async function generateBillOfSalePdf(input: BillOfSaleInput): Promise<Uin
   const text = (s: string, x: number, font: PDFFont, size: number, color = INK) =>
     page.drawText(clean(s), { x, y, size, font, color });
 
-  // Header
-  page.drawText("STUTTGART ARCHIVE", { x: M, y, size: 8, font: sansBold, color: OX });
-  y -= 22;
-  text("Vehicle Bill of Sale", M, serif, 24);
-  y -= 14;
+  // Header — generous spacing between the brand label and the document title.
+  page.drawText("STUTTGART ARCHIVE".split("").join(" "), { x: M, y, size: 8, font: sansBold, color: OX });
+  y -= 42;
+  text("Vehicle Bill of Sale", M, serif, 26);
+  y -= 24;
   page.drawRectangle({ x: M, y, width: W, height: 1, color: LINE });
-  y -= 26;
+  y -= 32;
 
   // Two-column parties
   const colW = W / 2;

@@ -3,7 +3,7 @@ import { Wordmark } from "@/components/brand/logo";
 import { Button } from "@/components/ui/button";
 
 const NAV = [
-  ["Explore", "/explore"],
+  ["Marketplace", "/marketplace"],
   ["Community", "/community"],
   ["Auction Radar", "/events"],
   ["Selling", "/selling"],
