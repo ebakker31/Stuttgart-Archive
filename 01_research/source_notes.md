@@ -76,6 +76,24 @@ platform, competitor, and trend claim in `/01_research` traces to a source below
 ### Fitness UGC creators (Idea F4)
 - UGC brief template packs reportedly earn **$250–1,600/month**; rate-card guidance ecosystem active; fitness UGC noted as a saturated creator niche (keeps creator rates lower) — [InfluenceFlow UGC rate card guide 2026](https://influenceflow.io/resources/ugc-creator-rate-card-the-complete-2026-guide-to-pricing-your-content/), [InfluenceFlow UGC brief template guide](https://influenceflow.io/resources/ugc-creator-brief-template-the-complete-2026-guide-for-creators-brands/), [Selene the Lawyer: UGC rate card guide](https://selenethelawyer.com/blog/ugc-rate-card), [CraftedCharts editable rate card (Canva)](https://craftedcharts.com/products/editable-ugc-creator-rate-card-template-to-download)
 
+## Consumer fitness (v3 revision, collected 2026-06-10)
+
+### Hybrid racing / HYROX (Idea C1)
+- Tens of thousands of athletes compete yearly; HyCoach aggregates official results from 350+ events, 9 seasons, 30 countries (~1M performances); HyroxDataLab built on 700k+ results — [HyCoach analysis (the5krunner)](https://the5krunner.com/2026/05/24/hycoach-hyrox-race-performance-analysis/), [HyroxDataLab](https://hyroxdatalab.com/), [HYRESULT](https://www.hyresult.com/)
+- Tracking-method debate (notes vs spreadsheet vs app) is active content in 2026; spreadsheet input-burden insight — [HyFit: How to track HYROX workouts 2026](https://hyfit.jp/en/insights/hyrox-record-method-guide/)
+- Race calculators exist as free web tools — [Hybrid Athlete Club HYROX calculator](https://hybridathleteclub.com/hyrox-race-calculator); free training plans from gym chains — [PureGym HYROX plan](https://www.puregym.com/blog/hyrox-training-plan/)
+- **ASSUMPTION:** HYROX entry fees "significant" (typically ~€/$100+) from general knowledge, not re-verified live this session. Verify before using in sales copy.
+
+### Home gym builds (Idea C2)
+- Home gym cost $800–$5,000 basic, $5,000–$25,000+ premium; HomeAdvisor avg range $2,150–$13,750 (avg ~$7,750) — [HomeAdvisor cost data](https://www.homeadvisor.com/cost/additions-and-remodels/build-a-home-gym/), [HomeGuide](https://homeguide.com/costs/home-gym-cost), [Garage Gym Reviews cost guide](https://www.garagegymreviews.com/how-much-does-home-gym-cost)
+- Detailed budget-tier build content thriving ($300–$5,000 tiers; stall-mat flooring hacks) but as articles, not planning tools — [GarageGymBuilders budget guide](https://garagegymbuilders.com/guides/home-gym-on-a-budget-complete-guide/), [GymCrafter planning guide](https://gymcrafter.com/plan-your-gym/)
+- ~1/3 of US adults plan fitness-equipment purchases (free weights first) — [CivicScience fitness trends 2026](https://civicscience.com/fitness-trends-of-2026-the-rise-of-yoga-home-equipment-purchasing-and-gen-z-elevates-social-fitness/)
+
+### Workout trackers / planners (Ideas C3–C7)
+- Progressive-overload Google Sheets trackers sell on Etsy with active TikTok interest; anti-subscription angle ("don't pay $20/mo for an app") — [Etsy progressive overload market](https://www.etsy.com/market/progressive_overload_workout_google_sheets), [TikTok discover: progressive overload spreadsheet](https://www.tiktok.com/discover/progressive-overload-spreadsheet), [example Etsy listing](https://www.etsy.com/listing/4304731972/workout-tracker-progressive-overload)
+- Fitness planner market on Etsy large and saturated (30-day bundles, 75-day challenge trackers, Google Sheets planners) — [Etsy fitness planner market](https://www.etsy.com/market/fitness_planner), [Etsy digital fitness planner market](https://www.etsy.com/market/digital_fitness_planner)
+- **Trademark note:** "75 Hard" is a protected program brand (Andy Frisella); original challenge frameworks required. Flagged from general knowledge — verify with counsel before any challenge-kit build.
+
 ## General assumptions log
 
 - **ASSUMPTION:** Blog-sourced claims (e.g., "templates outsell courses 3:1", margin percentages)
