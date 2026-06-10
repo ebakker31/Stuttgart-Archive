@@ -39,6 +39,23 @@
 - **Generic-template saturation:** any idea executed generically (consumer printables, broad
   social templates) enters the saturated layer — avoided by the brief's B2B/high-pain rule.
 
+## v2 addendum — fitness/athletic niche (owner-directed revision)
+
+1. **Fitness entrepreneurship is the demand layer, not fitness consumption.** The 18–35 cohort
+   drives 60% of discretionary fitness-spending growth, and a visible founder economy has formed
+   around it: activewear brand launches (a ~$340–460B market), online coaching (>$100B online
+   fitness by 2030), fitness UGC, run clubs. Digital products that serve these *builders* fit
+   the brief's B2B/high-pain rule; products that serve *exercisers* (workout PDFs) are
+   medical-adjacent and saturated.
+2. **Activewear launch pain is structural, not trendy.** Manufacturers require tech packs;
+   freelancers charge $150–2,000+; first runs cost $5,000–15,000 and take 16–24 weeks. None of
+   this is cyclical — it's how garment production works, which makes a launch kit evergreen.
+3. **Cheap AI tech-pack gigs ($5 Fiverr) are a commoditization signal** for the document alone —
+   reinforcing that the defensible product is the *system + judgment* (vetting, QC, costing,
+   sequencing), not the template file.
+4. **Operator-side Gen Z anxiety is peaking** (gymtimidation, contract aversion, failed-payment
+   churn, AI trust gap) — strong but more time-bound than F1's pain.
+
 ## Timing verdict
 
 A regulation-anchored AI governance kit is unusually well-timed (deadline ~Aug 2, 2026 creates a

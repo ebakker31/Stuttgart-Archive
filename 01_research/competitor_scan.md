@@ -41,6 +41,36 @@ the open question (niche).
 **Positioning gap:** narrower than #1/#2 — winning requires niche targeting (e.g., one vertical)
 and operational depth (scope creep, boundaries, offboarding). Crowded but proven demand.
 
+## v2 (fitness niche) — Idea F1: Activewear Brand Launch Kit
+
+| Competitor type | Examples | Price | Gap they leave |
+|---|---|---|---|
+| Template stores | TechPackTemplates.com, FittDesign | ~$20–60 per garment template | Single tech pack files only — no sourcing, sampling, costing, or launch process |
+| Etsy listings | Activewear tech pack market; standout 65-POM Excel template by 15-yr head of design | ~$10–50 | Same: document, not system; quality varies widely |
+| Fiverr services | $5 AI-generated to $110 custom tech packs | $5–110 | Done-for-you single garments; cheap tier is low-trust AI output; no founder education or process |
+| Freelance designers | Standard market rate | $150–500/garment, $500–2,000+ complex | Expensive per-garment; the kit's price anchor |
+| Free templates | BOMME Studio, Human B, template.net | $0 | Generic (not activewear-specific grading/seams), lead magnets, single files |
+| Sourcing guides | China Fitness Clothing hub et al. | $0 (content marketing) | Manufacturer-side content with sourcing bias; not neutral or actionable files |
+
+**Positioning gap:** every competitor sells or gives away a *piece* (one tech pack, one guide).
+No complete neutral "idea → tech packs → manufacturer → sample → cost → launch" system found as
+a one-time digital product. Price anchor is strong: the kit replaces a $500–2,000 freelancer
+line-item and de-risks a $5,000–15,000 first run.
+
+## v2 — Idea F2: Gym & Studio Gen Z Playbook
+
+| Competitor type | Examples | Price | Gap they leave |
+|---|---|---|---|
+| Free industry content | Les Mills, ABC Fitness, Gymdesk, WodGuru blogs | $0 | Insight without implementation files (no worksheets, scripts, calendars) |
+| Gym-management SaaS content | Trainerize, Virtuagym, monday-style vendor blogs | $0 (gated) | Assumes their software; acquisition-focused, thin on retention ops |
+| Consultants | Boutique fitness consultants | $1,000s | Out of reach for independent operators |
+
+## v2 — Idea F4: Fitness UGC Creator Kit
+
+Crowded guidance layer (InfluenceFlow, lawyer-led blogs, Canva rate cards on Etsy ~$5–30);
+differentiation would be fitness-specific pitch targets and brief-response frameworks; low price
+ceiling.
+
 ## Other scanned ideas (summary)
 
 - **SOP packs (#5):** Operations Mavenue sells a 60+ SOP manual (one-time, Notion) — direct,

@@ -55,6 +55,27 @@ platform, competitor, and trend claim in `/01_research` traces to a source below
 
 - Commoditized: multiple free Google Sheets and low-priced Etsy listings — [Freelance Rate Calculator](https://www.freelanceratecalculator.com/), [Etsy hourly rate calculator listing](https://www.etsy.com/listing/1021459493/hourly-rate-calculator-how-much-you), [DMW freelance fee spreadsheet](https://www.consultdmw.com/freelance-fees-guide-spreadsheet.html)
 
+## Fitness / athletic niche (v2 revision, collected 2026-06-10)
+
+### Activewear brand launch (Idea F1)
+- Tech pack defined as the manufacturing blueprint; activewear-specific requirements (flatlock stitching, stretch-fabric grading); freelancers charge **$150–500 standard / $500–2,000+ complex per garment**; first 100-unit US run **$5,000–15,000 all-in**; production cycle 12–16 weeks, zero-to-product 16–24 weeks — [Adstronaut: Complete Guide to Fashion Tech Packs 2026](https://www.adstronaut.net/blog/complete-guide-to-fashion-tech-packs), [Call The Style: activewear tech pack guide](https://www.callthestyle.com/blog/The-Ultimate-Guide-to-Custom-Clothing-Tech-Packs-From-Design-to-Production_b21867), [China Fitness Clothing: 2026 activewear manufacturer sourcing guide](https://chinafitnessclothing.com/hub/activewear-manufacturers-for-startups/)
+- Existing template competitors (fragments, not systems): [TechPackTemplates.com women's sports/activewear category](https://www.techpacktemplates.com/category/womens-sports-and-activewear/), [FittDesign digital tech pack templates](https://www.fittdesign.com/products/digital?type=TechPackTemplate), [Etsy activewear tech pack market](https://www.etsy.com/market/activewear_tech_pack_template) incl. [a 65-points-of-measure Excel template by a 15-yr head of design](https://www.etsy.com/listing/4472105889/activewear-tech-pack-template-sports-bra), [Fiverr gigs $5–110](https://www.fiverr.com/acastrase/do-active-wear-design-and-tech-pack), free templates ([BOMME Studio](https://www.bommestudio.com/free-tech-pack-template), [Human B](https://www.humanb.com/fashion-industry-forms/tech-pack-template))
+- Activewear market size 2026 estimates range **~$339B–$459B** depending on source/definition — [Grand View Research](https://www.grandviewresearch.com/industry-analysis/activewear-market-report), [Coherent Market Insights](https://www.coherentmarketinsights.com/industry-reports/active-wear-market), [Fortune Business Insights](https://www.fortunebusinessinsights.com/activewear-market-107923)
+- **ASSUMPTION:** no direct statistic found for "number of people wanting to start an activewear brand"; founder demand inferred from the service ecosystem (Fiverr gigs, template stores, sourcing guides aimed at startups).
+
+### Gym/studio operators & Gen Z (Idea F2)
+- Gen Z + millennials drive **60% of discretionary fitness-spending growth**; 30% of Gen Z plan to spend more on fitness in 2026; gymtimidation and contract-aversion documented; Gen Z wants flexibility, gamification, social experiences — [Les Mills: 7 key trends shaping fitness in 2026](https://www.lesmills.com/articles/7-key-trends-shaping-fitness-in-2026), [WodGuru: Gen Z gym trends](https://wod.guru/blog/gen-z-gym/), [FitTech Global: How will Gen Z affect the fitness industry](https://www.fittechglobal.com/fit-tech-features/Consumer-trends-Generation-Z/32326)
+- Failed payments drive up to **1 in 3 cancellations**; operator-side retention data — [ABC Fitness: data for gym operators 2026](https://abcfitness.com/fitness-industry/fitness-industry-data-for-gym-operators-2026/)
+- AI trust gap: 64% of Gen Z used AI fitness apps but only 33% trust them — [Trainerize: exercise trends 2026](https://www.trainerize.com/blog/exercise-trends/)
+- Social fitness rising; yoga/Pilates interest +4pts to 17% — [CivicScience fitness trends 2026](https://civicscience.com/fitness-trends-of-2026-the-rise-of-yoga-home-equipment-purchasing-and-gen-z-elevates-social-fitness/)
+
+### Online fitness coaches (Idea F6)
+- Online fitness market projected **>$100B by 2030**; UK PT industry £853.7M, 25,000+ registered PT businesses — [Virtuagym: become an online fitness coach 2026](https://business.virtuagym.com/blog/how-to-become-an-online-fitness-coach/)
+- Headwind: all-in-one coaching software (onboarding, waivers, check-ins built in) is displacing spreadsheets/templates — [Trainerize onboarding guide 2026](https://www.trainerize.com/blog/the-ultimate-guide-to-onboarding-new-fitness-clients/), [CoachCatalyst software roundup](https://coachcatalyst.com/top-online-personal-training-software)
+
+### Fitness UGC creators (Idea F4)
+- UGC brief template packs reportedly earn **$250–1,600/month**; rate-card guidance ecosystem active; fitness UGC noted as a saturated creator niche (keeps creator rates lower) — [InfluenceFlow UGC rate card guide 2026](https://influenceflow.io/resources/ugc-creator-rate-card-the-complete-2026-guide-to-pricing-your-content/), [InfluenceFlow UGC brief template guide](https://influenceflow.io/resources/ugc-creator-brief-template-the-complete-2026-guide-for-creators-brands/), [Selene the Lawyer: UGC rate card guide](https://selenethelawyer.com/blog/ugc-rate-card), [CraftedCharts editable rate card (Canva)](https://craftedcharts.com/products/editable-ugc-creator-rate-card-template-to-download)
+
 ## General assumptions log
 
 - **ASSUMPTION:** Blog-sourced claims (e.g., "templates outsell courses 3:1", margin percentages)
