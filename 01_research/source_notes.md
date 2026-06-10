@@ -94,6 +94,16 @@ platform, competitor, and trend claim in `/01_research` traces to a source below
 - Fitness planner market on Etsy large and saturated (30-day bundles, 75-day challenge trackers, Google Sheets planners) — [Etsy fitness planner market](https://www.etsy.com/market/fitness_planner), [Etsy digital fitness planner market](https://www.etsy.com/market/digital_fitness_planner)
 - **Trademark note:** "75 Hard" is a protected program brand (Andy Frisella); original challenge frameworks required. Flagged from general knowledge — verify with counsel before any challenge-kit build.
 
+## Fitness app / macro tracker market (final product validation, collected 2026-06-10)
+
+- Calorie-counter app market **$4.14B in 2026, +9.27%/yr** — [Kcalm: calorie tracking apps comparison](https://www.kcalm.app/blog/best-calorie-tracking-apps-comparison/)
+- **MyFitnessPal Premium $19.99/mo / $79.99/yr; Premium+ $24.99/mo / $99.99/yr**; free tier has ads + paywalled barcode scanning; database quality issues (duplicates/wrong entries) — [NutriScan: MyFitnessPal vs MacroFactor 2026](https://nutriscan.app/blog/posts/myfitnesspal-vs-macrofactor-2026-which-paid-tracker-b86a2f0b87)
+- **MacroFactor $11.99/mo / $71.99/yr, no free tier** — same source + [Outlift MacroFactor review](https://outlift.com/macrofactor-review/)
+- Cheaper/alternative ecosystem active (Fitia, Cronometer, Nutrola €2.50/mo, AI photo-logging bots) — [Fitia: best MacroFactor alternatives 2026](https://fitia.app/learn/article/best-macrofactor-alternatives-2026/), [AskVora: MyFitnessPal alternatives 2026](https://askvora.com/blog/best-myfitnesspal-alternatives-2026)
+- Local-first/no-subscription demand evidence: FitNotes (offline, local, CSV export, Android-only) called out as the privacy-conscious pick; "no subscription" is an active 2026 review category — [Setgraph: best free workout tracking apps 2026](https://setgraph.app/ai-blog/best-free-apps-for-tracking-workouts), [Engadget: fitness trackers without subscriptions](https://www.engadget.com/2183305/fitness-trackers-no-subscription/), [Fitloop comparison](https://www.fitloop.app/compare/best-gym-workout-app-free)
+- Data portability standards: Strava bulk export (GPX archives), Garmin Connect exports (FIT/TCX/GPX/CSV), Apple Health sync paths; **HealthFit $2.99 one-time** iOS app proves paid one-time data tools sell; **Garmin commercial API requires business approval (not instant/guaranteed)** — [Strava support: Garmin export](https://support.strava.com/hc/en-us/articles/216917807-Exporting-Files-from-Garmin-Connect), [Strava support: Apple Health](https://support.strava.com/hc/en-us/articles/216917527-Health-App-and-Strava), [Gneta: Garmin data export guide](https://www.gneta.app/blog/export-garmin-data-guide), [MoveMap: export Strava to Apple Health 2026](https://getrunmap.com/blog/export-strava-to-apple-health), [LifeTrails: health data integration guide 2026](https://lifetrails.ai/blog/health-data-integration-app-switching-export-guide)
+- USDA FoodData Central is public domain (US government work) — basis for bundled foods data. **ASSUMPTION:** stated from general knowledge of US government data policy; verify license page before launch.
+
 ## General assumptions log
 
 - **ASSUMPTION:** Blog-sourced claims (e.g., "templates outsell courses 3:1", margin percentages)
