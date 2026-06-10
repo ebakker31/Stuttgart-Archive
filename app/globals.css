@@ -18,8 +18,8 @@
     --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
     --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
     --font-wordmark: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-    /* Porsche-inspired carmine red for the brand wordmark + key accents */
-    --brand-red: #c8102e;
+    /* Guards Red (Indischrot) — the most iconic, authentic Porsche colour. */
+    --brand-red: #D5001C;
 
     --background: 44 30% 94%;       /* warm parchment */
     --foreground: 210 8% 14%;       /* graphite ink */
