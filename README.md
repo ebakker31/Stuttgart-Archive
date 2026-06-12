@@ -310,6 +310,31 @@ Real OCR/text extraction, true PDF rendering for packets, Instagram/Meta OAuth, 
 app with StoreKit, team roles for dealers, public explore filtering on live data, expansion
 beyond Porsche to other enthusiast marques (the architecture already supports it).
 
+---
+
+## Lumengarden — bonus mini-game (`/play`)
+
+A self-contained, family-friendly (PG) builder bundled with the app at **`/play`**. It's an
+*original* concept — a cozy, peaceful "sky garden of light" with **no combat, clans, or
+player-vs-player** — so it doesn't copy the games it borrows its free-to-play economics from.
+
+- **Grow on timers:** plant glow-seeds that bloom over real time into **Lumen** (soft currency).
+- **Reinvest:** Glow Wells (idle income), Prisms (global multiplier), Sprite Huts (automation),
+  Moondials (faster growth), plus more plots and Garden Rank unlocks.
+- **Stardust (premium currency):** skips growth timers and buys cosmetic skies. Earned slowly
+  in-game **or** via simulated in-app-purchase packs — the classic scaling levers, reskinned.
+- **Offline progress:** idle income banks while you're away (with a storage cap that upgrades
+  extend), collected on return.
+
+All gameplay math is pure and unit-tested (`lib/game/*`, `tests/game-engine.test.ts`); the
+React/persistence layer lives in `app/play` + `components/game`. Saves to `localStorage`.
+
+> **Monetization is simulated** — the shop charges no real money. In production each pack
+> would route through the existing Stripe / app-store plumbing (`lib/payments/*`) and grant
+> Stardust server-side after the receipt is verified.
+
+---
+
 ## Known limitations (MVP)
 
 - Document extraction and PDF export are stubbed/abstracted (deterministic extraction +
